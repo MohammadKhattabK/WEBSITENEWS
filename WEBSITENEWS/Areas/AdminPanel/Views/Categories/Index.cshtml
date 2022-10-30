@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WEBSITENEWS.Models.Category>
+
+    <div class="container">
+        <p>
+            <a asp-action="Create" class="btn-success">إضافة قسم</a>
+        </p>
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th>
+                        الاسم @*@Html.DisplayNameFor(model => model.Name)*@
+                    </th>
+                    
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                            @*@Html.DisplayFor(modelItem => item.Name)*@
+                        </td>
+                        
+                        <td>
+                            <a asp-action="Edit" class="btn-primary" asp-route-id="@item.Id">تعديل</a> |
+                            <a asp-action="Details" class="btn-dark" asp-route-id="@item.Id">عرض التفاصيل</a> |
+                            <a asp-action="Delete" class="btn-danger" asp-route-id="@item.Id">حذف</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
